@@ -7,6 +7,11 @@
 // Ping.fm application API key.
 const API_KEY = '4217564672bbb9e35396f53d79e0e114';
 
+// Preference key which holds the User's application key.
+const PREF_KEY_NAME = 'PingfmApplicationKey';
+
+const API_URL = 'http://api.ping.fm/v1';
+
 //
 // Function: load()
 // Called by HTML body element's onload event when the widget is ready to start
@@ -25,6 +30,7 @@ function remove()
     // Stop any timers to prevent CPU usage
     // Remove any preferences as needed
     // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey("your-key"));
+    widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey(PREF_KEY_NAME));
 }
 
 //
@@ -103,6 +109,8 @@ function showFront(event)
     if (window.widget) {
         setTimeout('widget.performTransition();', 0);
     }
+    
+    saveAppKey();
 }
 
 if (window.widget) {
@@ -148,6 +156,11 @@ function openPingfmKeyPage(event)
     widget.openURL(url);
 }
 
+function openPingfmPage(event)
+{
+    var url = 'http://ping.fm/';
+    widget.openURL(url);
+}
 
 function postButtonOnClick(event)
 {
@@ -155,6 +168,33 @@ function postButtonOnClick(event)
     if (message) postToPingfm(message);
 }
 
+function saveAppKey()
+{
+    var keyName = PREF_KEY_NAME;
+    var appKey  = document.getElementById('appKeyTextArea').value;
+    if (appKey) {
+        widget.setPreferenceForKey(keyName, appKey);
+    } else {
+        widget.setPreferenceForKey(keyName, null);
+    }
+}
+
 function postToPingfm(message)
 {
+    var onloadHandler = function() { parseResponse(xmlRequest) }
+
+    var xmlRequest = new XMLHttpRequest();
+    xmlRequest.onload = onloadHandler;
+    xmlRequest.open('GET', 'http://corrupt.save-state.net/feed.atom');
+    xmlRequest.setRequestHeader('Cache-Control', 'no-cache');
+    xmlRequest.send(null);
+}
+
+function parseResponse(xmlRequest)
+{
+    if (xmlRequest.status == 200) {
+        alert(xmlRequest.responseXML);
+    } else {
+        alert('Error: ' + xmlRequest.status);
+    }
 }

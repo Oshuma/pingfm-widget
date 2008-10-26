@@ -39,9 +39,9 @@ body {
     display: block;
     top: 0px;
     left: 0px;
-    bottom: 0px;
     right: 0px;
     width: auto;
+    bottom: 0px;
     height: auto;
 }
 
@@ -92,32 +92,6 @@ body {
     top: 166px;
     left: 28px;
     bottom: 18px;
-    height: auto;
-}
-
-#userKeyTextArea {
-    position: absolute;
-    color: black;
-    font-family: HelveticaNeue;
-    font-size: 10pt;
-    left: 19px;
-    width: 398px;
-    top: 42px;
-}
-
-#userKeyLabel {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    margin-top: 0px;
-    color: rgb(255, 255, 255);
-    font-family: 'Helvetica Neue';
-    font-size: 11pt;
-    left: 166px;
-    top: 19px;
-    right: 168px;
-    width: auto;
-    bottom: 162px;
     height: auto;
 }
 
@@ -177,6 +151,41 @@ body {
     right: auto;
     bottom: auto;
     margin-top: 0px;
-    left: 166px;
     top: 90px;
+    left: 214px;
+}
+
+#glassbutton {
+    position: absolute;
+    right: auto;
+    bottom: auto;
+    margin-top: 0px;
+    top: 90px;
+    left: 116px;
+}
+
+#appKeyLabel {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    color: rgb(255, 255, 255);
+    font-family: 'Helvetica Neue';
+    font-size: 11pt;
+    left: 166px;
+    top: 19px;
+    right: 168px;
+    width: auto;
+    bottom: 162px;
+    height: auto;
+}
+
+#appKeyTextArea {
+    position: absolute;
+    color: black;
+    font-family: HelveticaNeue;
+    font-size: 10pt;
+    left: 19px;
+    width: 398px;
+    top: 42px;
 }
