@@ -4,6 +4,9 @@
  according to the license.txt file included in the project.
  */
 
+// Ping.fm application API key.
+const API_KEY = '4217564672bbb9e35396f53d79e0e114';
+
 //
 // Function: load()
 // Called by HTML body element's onload event when the widget is ready to start
@@ -107,4 +110,51 @@ if (window.widget) {
     widget.onhide = hide;
     widget.onshow = show;
     widget.onsync = sync;
+}
+
+
+function clearButtonOnClick(event)
+{
+    clearTextArea('messageTextArea');
+    updateCharacterCount();
+}
+
+function clearTextArea(id)
+{
+    var textArea = document.getElementById(id);
+    if (textArea)
+        textArea.value = '';
+}
+
+function messageTextAreaCounter(event)
+{
+    updateCharacterCount();
+}
+
+function updateCharacterCount()
+{
+    var textArea  = document.getElementById('messageTextArea');
+    var charCount = textArea.value.length;
+    var status    = document.getElementById('characterCount');
+    status.innerHTML = charCount;
+
+    if (charCount >= 140) status.style.color = 'red';
+    else status.style.color = 'black';
+}
+
+function openPingfmKeyPage(event)
+{
+    var url = 'http://ping.fm/key/';
+    widget.openURL(url);
+}
+
+
+function postButtonOnClick(event)
+{
+    var message = document.getElementById('messageTextArea').value;
+    if (message) postToPingfm(message);
+}
+
+function postToPingfm(message)
+{
 }

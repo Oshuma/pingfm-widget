@@ -5,7 +5,13 @@
  code generator otherwise the changes will be lost.
  */
 var dashcodePartSpecs = {
+    "characterCount": { "creationFunction": "CreateText", "text": "0" },
+    "charactersLabel": { "creationFunction": "CreateText", "text": "Characters:" },
+    "clearButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "clearButtonOnClick", "rightImageWidth": 5, "text": "Clear" },
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
-    "info": { "backgroundStyle": "black", "creationFunction": "CreateInfoButton", "foregroundStyle": "white", "frontID": "front", "onclick": "showBack" },
-    "text": { "creationFunction": "CreateText", "text": "Post to Ping.fm:" }
+    "frontHeader": { "creationFunction": "CreateText", "text": "Post to Ping.fm:" },
+    "info": { "backgroundStyle": "white", "creationFunction": "CreateInfoButton", "foregroundStyle": "black", "frontID": "front", "onclick": "showBack" },
+    "keyLinkButton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmKeyPage", "text": "What is my key?" },
+    "postButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "postButtonOnClick", "rightImageWidth": 5, "text": "Post" },
+    "userKeyLabel": { "creationFunction": "CreateText", "text": "Application Key:" }
 };

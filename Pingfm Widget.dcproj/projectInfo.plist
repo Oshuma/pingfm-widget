@@ -16,7 +16,7 @@
 	<array>
 		<dict>
 			<key>Completed</key>
-			<false/>
+			<true/>
 			<key>Detail</key>
 			<string>Custom_Step_1_Detail</string>
 			<key>MainHelp</key>
