@@ -1,4 +1,12 @@
+TODO
+----
 * Preference saving.
+* Response notification.
 * Better handling of the character count.
+
+
+Planned Features
+----------------
+* Dropdown option to select a particular service.
 * Keyboard shortcuts (Cmd+A to select all text, etc.)
 

@@ -203,26 +203,31 @@ function postToPingfm(message)
     var user_app_key = getUserAppKey();
     if (!user_app_key) {
         showBack();
+        document.getElementById('appKeyTextArea').focus();
         return;
     }
     var url = API_URL + "/user.post";
-    url += "?debug=1";  // REMOVE AFTER TESTING.
-    url += "&api_key=" + API_KEY;
-    url += "&user_app_key=" + user_app_key;
-    url += "&post_method=default";
-    url += "&body=" + message;
+    var params;
+    // params += "&debug=1";  // ONLY FOR TESTING.
+    params += "&api_key=" + API_KEY;
+    params += "&user_app_key=" + user_app_key;
+    params += "&post_method=default";
+    params += "&body=" + message;
 
     // Send that shit.
     xmlRequest.open("POST", url);
     xmlRequest.setRequestHeader("Cache-Control", "no-cache");
-    xmlRequest.send(null);
+    xmlRequest.send(params);
 }
 
 function parseResponse(xmlRequest)
 {
     if (xmlRequest.status == 200) {
-        alert(xmlRequest.responseXML);
+        // TODO: Response notification would probably go here.
+        alert('Response XML: ' + xmlRequest.responseXML);
+        clearTextArea('messageTextArea');
     } else {
-        alert('Error: ' + xmlRequest.status);
+        alert('HTTP Code: ' + xmlRequest.status);
+        alert('Response: '  + xmlRequest.responseText);
     }
 }
