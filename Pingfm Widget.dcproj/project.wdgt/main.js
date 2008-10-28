@@ -12,6 +12,8 @@ const PREF_KEY_NAME = 'PingfmUserApplicationKey';
 
 const API_URL = 'http://api.ping.fm/v1';
 
+const DEBUG = true;
+
 //
 // Function: load()
 // Called by HTML body element's onload event when the widget is ready to start
@@ -31,8 +33,8 @@ function remove()
     // Remove any preferences as needed
     // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey("your-key"));
 
-    // TODO: Preferences not working at the moment.
     // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey(PREF_KEY_NAME));
+    widget.setPreferenceForKey(null, PREF_KEY_NAME);
 }
 
 //
@@ -112,8 +114,7 @@ function showFront(event)
         setTimeout('widget.performTransition();', 0);
     }
     
-    // TODO: Preferences not working at the moment.
-    // saveAppKey();
+    saveAppKey();
 }
 
 if (window.widget) {
@@ -171,21 +172,20 @@ function postButtonOnClick(event)
     if (message) postToPingfm(message);
 }
 
-// TODO: This seems to be broken for some reason.
 function saveAppKey()
 {
-    var keyName = PREF_KEY_NAME;
     var appKey  = document.getElementById('appKeyTextArea').value;
     if (appKey) {
-        widget.setPreferenceForKey(keyName, appKey);
+        widget.setPreferenceForKey(appKey, PREF_KEY_NAME);
     } else {
-        widget.setPreferenceForKey(keyName, null);
+        widget.setPreferenceForKey(null, PREF_KEY_NAME);
     }
 }
 
 // Returns the user's application API key.
 function getUserAppKey() {
-    var key = document.getElementById('appKeyTextArea').value;
+    var key = widget.preferenceForKey(PREF_KEY_NAME);
+    // var key = document.getElementById('appKeyTextArea').value;
     if (key) return key;
     else return null;
 }
@@ -206,7 +206,10 @@ function postToPingfm(message)
     }
     var url = API_URL + "/user.post";
     var params;
-    // params += "&debug=1";  // ONLY FOR TESTING.
+
+    if (DEBUG)
+        params += "&debug=1";
+
     params += "&api_key=" + API_KEY;
     params += "&user_app_key=" + user_app_key;
     params += "&post_method=default";
@@ -218,15 +221,19 @@ function postToPingfm(message)
     xmlRequest.send(params);
 }
 
+// TODO: Response notification would probably go here.
 function parseResponse(xmlRequest)
 {
     if (xmlRequest.status == 200) {
-        // TODO: Response notification would probably go here.
-        alert('Response XML: ' + xmlRequest.responseXML);
+        if (DEBUG)
+            alert('Response XML: ' + xmlRequest.responseXML);
         clearTextArea('messageTextArea');
         updateCharacterCount();
     } else {
-        alert('HTTP Code: ' + xmlRequest.status);
-        alert('Response: '  + xmlRequest.responseText);
+        if (DEBUG) {
+            alert('HTTP Code: '   + xmlRequest.status);
+            alert('HTTP Status: ' + xmlRequest.statusText);
+            alert('Response: '    + xmlRequest.responseText);
+        }
     }
 }
