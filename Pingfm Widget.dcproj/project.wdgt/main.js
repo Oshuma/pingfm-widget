@@ -183,9 +183,7 @@ function saveAppKey()
     }
 }
 
-// Returns an array of API keys.
-// First element is the application key.
-// Second element is the user application key.
+// Returns the user's application API key.
 function getUserAppKey() {
     var key = document.getElementById('appKeyTextArea').value;
     if (key) return key;
