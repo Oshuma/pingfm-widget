@@ -226,6 +226,7 @@ function parseResponse(xmlRequest)
         // TODO: Response notification would probably go here.
         alert('Response XML: ' + xmlRequest.responseXML);
         clearTextArea('messageTextArea');
+        updateCharacterCount();
     } else {
         alert('HTTP Code: ' + xmlRequest.status);
         alert('Response: '  + xmlRequest.responseText);

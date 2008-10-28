@@ -4,6 +4,8 @@
 <dict>
 	<key>AppIconImageSettings</key>
 	<string>image-theme: 1; image-shape: 3; image-opacity: 1.00; image-top-color: 1,1,1,1; image-bottom-color: 0.615400016,0.615400016,0.615400016,1; image-radius: 12,12,12,12; image-border: 1; image-border-color: 0.529399991,0.529399991,0.529399991,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 1; shadow-offset: -1.00,-6.00; shadow-color: 0,0,0,0.3333;</string>
+	<key>CYBackwardCompatibleExport</key>
+	<false/>
 	<key>CYProjectFormatVersion</key>
 	<integer>13</integer>
 	<key>CYShineVersion</key>
@@ -66,7 +68,7 @@
 		</dict>
 		<dict>
 			<key>Completed</key>
-			<false/>
+			<true/>
 			<key>Detail</key>
 			<string>Custom_Step_5_Detail</string>
 			<key>MainHelp</key>
