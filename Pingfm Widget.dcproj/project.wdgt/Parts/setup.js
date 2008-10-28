@@ -15,5 +15,6 @@ var dashcodePartSpecs = {
     "info": { "backgroundStyle": "white", "creationFunction": "CreateInfoButton", "foregroundStyle": "black", "frontID": "front", "onclick": "showBack" },
     "keyLinkButton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmKeyPage", "text": "What is my key?" },
     "pingfmLinkButton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmPage", "text": "Ping.fm Site" },
-    "postButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "postButtonOnClick", "rightImageWidth": 5, "text": "Post" }
+    "postButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "postButtonOnClick", "rightImageWidth": 5, "text": "Post" },
+    "versionString": { "creationFunction": "CreateText", "text": "Version:" }
 };

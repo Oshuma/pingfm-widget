@@ -4,6 +4,8 @@
  according to the license.txt file included in the project.
  */
 
+const VERSION = '1.0.1';
+
 // Ping.fm application API key.
 const API_KEY = '4217564672bbb9e35396f53d79e0e114';
 
@@ -21,6 +23,12 @@ const DEBUG = true;
 function load()
 {
     dashcode.setupParts();
+    loadVersionString();
+}
+
+function loadVersionString() {
+    var version = document.getElementById('versionString');
+    if (version) version.innerHTML += VERSION;
 }
 
 //

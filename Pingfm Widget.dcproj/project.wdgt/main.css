@@ -191,7 +191,9 @@ body {
 }
 
 #codeLinkText {
-    border-bottom: thin dotted rgb(121, 136, 255);
+    border-bottom-width: thin;
+    border-bottom-style: dotted;
+    border-bottom-color: rgb(121, 136, 255);
     text-overflow: ellipsis;
     overflow: hidden;
     position: absolute;
@@ -202,9 +204,23 @@ body {
     font-size: 15pt;
     text-shadow: rgb(128, 128, 128) 0px 0px 0px;
     left: 19px;
-    top: 155px;
-    width: auto;
-    bottom: 24px;
-    height: auto;
+    top: 142px;
     right: 298px;
+    width: auto;
+    bottom: 37px;
+    height: auto;
+}
+
+#versionString {
+    font-family: HelveticaNeue;
+    font-size: 10pt;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    color: rgb(255, 255, 255);
+    top: 168px;
+    left: 19px;
+    width: auto;
+    height: auto;
 }
