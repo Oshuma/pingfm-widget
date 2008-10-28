@@ -189,3 +189,22 @@ body {
     top: 90px;
     left: 116px;
 }
+
+#codeLinkText {
+    border-bottom: thin dotted rgb(121, 136, 255);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue';
+    color: rgb(121, 136, 255);
+    font-size: 15pt;
+    text-shadow: rgb(128, 128, 128) 0px 0px 0px;
+    left: 19px;
+    top: 155px;
+    width: auto;
+    bottom: 24px;
+    height: auto;
+    right: 298px;
+}

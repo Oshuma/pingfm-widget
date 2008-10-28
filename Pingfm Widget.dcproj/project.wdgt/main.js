@@ -154,17 +154,23 @@ function updateCharacterCount()
     else status.style.color = 'black';
 }
 
+
+// Yes, these are stupid.
 function openPingfmKeyPage(event)
 {
-    var url = 'http://ping.fm/key/';
-    widget.openURL(url);
+    widget.openURL('http://ping.fm/key/');
 }
 
 function openPingfmPage(event)
 {
-    var url = 'http://ping.fm/';
-    widget.openURL(url);
+    widget.openURL('http://ping.fm/');
 }
+
+function openCodePage(event)
+{
+    widget.openURL('http://github.com/Oshuma/pingfm-widget/');
+}
+
 
 function postButtonOnClick(event)
 {
@@ -185,7 +191,6 @@ function saveAppKey()
 // Returns the user's application API key.
 function getUserAppKey() {
     var key = widget.preferenceForKey(PREF_KEY_NAME);
-    // var key = document.getElementById('appKeyTextArea').value;
     if (key) return key;
     else return null;
 }

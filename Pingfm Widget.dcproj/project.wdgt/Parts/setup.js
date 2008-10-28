@@ -9,6 +9,7 @@ var dashcodePartSpecs = {
     "characterCount": { "creationFunction": "CreateText", "text": "0" },
     "charactersLabel": { "creationFunction": "CreateText", "text": "Characters:" },
     "clearButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "clearButtonOnClick", "rightImageWidth": 5, "text": "Clear" },
+    "codeLinkText": { "creationFunction": "CreateText", "text": "Get the code!" },
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
     "frontHeader": { "creationFunction": "CreateText", "text": "Post to Ping.fm:" },
     "info": { "backgroundStyle": "white", "creationFunction": "CreateInfoButton", "foregroundStyle": "black", "frontID": "front", "onclick": "showBack" },
