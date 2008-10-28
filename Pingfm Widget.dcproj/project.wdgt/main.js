@@ -8,7 +8,7 @@
 const API_KEY = '4217564672bbb9e35396f53d79e0e114';
 
 // Preference key which holds the User's application key.
-const PREF_KEY_NAME = 'PingfmApplicationKey';
+const PREF_KEY_NAME = 'PingfmUserApplicationKey';
 
 const API_URL = 'http://api.ping.fm/v1';
 
@@ -30,7 +30,9 @@ function remove()
     // Stop any timers to prevent CPU usage
     // Remove any preferences as needed
     // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey("your-key"));
-    widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey(PREF_KEY_NAME));
+
+    // TODO: Preferences not working at the moment.
+    // widget.setPreferenceForKey(null, dashcode.createInstancePreferenceKey(PREF_KEY_NAME));
 }
 
 //
@@ -110,7 +112,8 @@ function showFront(event)
         setTimeout('widget.performTransition();', 0);
     }
     
-    saveAppKey();
+    // TODO: Preferences not working at the moment.
+    // saveAppKey();
 }
 
 if (window.widget) {
@@ -168,6 +171,7 @@ function postButtonOnClick(event)
     if (message) postToPingfm(message);
 }
 
+// TODO: This seems to be broken for some reason.
 function saveAppKey()
 {
     var keyName = PREF_KEY_NAME;
@@ -179,14 +183,38 @@ function saveAppKey()
     }
 }
 
+// Returns an array of API keys.
+// First element is the application key.
+// Second element is the user application key.
+function getUserAppKey() {
+    var key = document.getElementById('appKeyTextArea').value;
+    if (key) return key;
+    else return null;
+}
+
 function postToPingfm(message)
 {
-    var onloadHandler = function() { parseResponse(xmlRequest) }
-
+    // Create XMLHttpRequest and assign a handler.
+    var onloadHandler = function() { parseResponse(xmlRequest); };
     var xmlRequest = new XMLHttpRequest();
     xmlRequest.onload = onloadHandler;
-    xmlRequest.open('GET', 'http://corrupt.save-state.net/feed.atom');
-    xmlRequest.setRequestHeader('Cache-Control', 'no-cache');
+
+    // Build the URL and payload.
+    var user_app_key = getUserAppKey();
+    if (!user_app_key) {
+        showBack();
+        return;
+    }
+    var url = API_URL + "/user.post";
+    url += "?debug=1";  // REMOVE AFTER TESTING.
+    url += "&api_key=" + API_KEY;
+    url += "&user_app_key=" + user_app_key;
+    url += "&post_method=default";
+    url += "&body=" + message;
+
+    // Send that shit.
+    xmlRequest.open("POST", url);
+    xmlRequest.setRequestHeader("Cache-Control", "no-cache");
     xmlRequest.send(null);
 }
 
