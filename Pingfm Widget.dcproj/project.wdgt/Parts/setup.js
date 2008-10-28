@@ -11,8 +11,8 @@ var dashcodePartSpecs = {
     "clearButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "clearButtonOnClick", "rightImageWidth": 5, "text": "Clear" },
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
     "frontHeader": { "creationFunction": "CreateText", "text": "Post to Ping.fm:" },
-    "glassbutton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmPage", "text": "Ping.fm Site" },
     "info": { "backgroundStyle": "white", "creationFunction": "CreateInfoButton", "foregroundStyle": "black", "frontID": "front", "onclick": "showBack" },
     "keyLinkButton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmKeyPage", "text": "What is my key?" },
+    "pingfmLinkButton": { "creationFunction": "CreateGlassButton", "onclick": "openPingfmPage", "text": "Ping.fm Site" },
     "postButton": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "postButtonOnClick", "rightImageWidth": 5, "text": "Post" }
 };

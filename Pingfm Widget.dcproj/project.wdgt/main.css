@@ -155,15 +155,6 @@ body {
     left: 214px;
 }
 
-#glassbutton {
-    position: absolute;
-    right: auto;
-    bottom: auto;
-    margin-top: 0px;
-    top: 90px;
-    left: 116px;
-}
-
 #appKeyLabel {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -188,4 +179,13 @@ body {
     left: 19px;
     width: 398px;
     top: 42px;
+}
+
+#pingfmLinkButton {
+    position: absolute;
+    right: auto;
+    bottom: auto;
+    margin-top: 0px;
+    top: 90px;
+    left: 116px;
 }

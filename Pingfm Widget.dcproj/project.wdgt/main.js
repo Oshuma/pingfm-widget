@@ -225,8 +225,10 @@ function postToPingfm(message)
 function parseResponse(xmlRequest)
 {
     if (xmlRequest.status == 200) {
-        if (DEBUG)
+        if (DEBUG) {
             alert('Response XML: ' + xmlRequest.responseXML);
+            alert('Response: '     + xmlRequest.responseText);
+        }
         clearTextArea('messageTextArea');
         updateCharacterCount();
     } else {
