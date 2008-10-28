@@ -7,15 +7,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pingfm Widget v1.0</string>
+	<string>Pingfm Widget</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.oshuma.widget.Pingfm Widget</string>
 	<key>CFBundleName</key>
-	<string>Pingfm Widget v1.0</string>
+	<string>Pingfm Widget</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CloseBoxInsetX</key>
 	<integer>15</integer>
 	<key>CloseBoxInsetY</key>
