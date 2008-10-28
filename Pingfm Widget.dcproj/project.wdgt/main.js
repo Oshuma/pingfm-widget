@@ -14,7 +14,7 @@ const PREF_KEY_NAME = 'PingfmUserApplicationKey';
 
 const API_URL = 'http://api.ping.fm/v1';
 
-const DEBUG = true;
+const DEBUG = false;
 
 //
 // Function: load()
