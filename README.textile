@@ -5,4 +5,4 @@ the "Ping.fm":http://ping.fm/ service.
 
 If you're interested in the nerdy bits, "get the code":http://github.com/Oshuma/pingfm-widget/!
 
-Or, you can just download a release and start pinging.
+Or, you can just download a "release":http://github.com/Oshuma/pingfm-widget/tree/master/release and start pinging.
