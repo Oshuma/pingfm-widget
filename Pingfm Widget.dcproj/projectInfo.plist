@@ -10,6 +10,8 @@
 	<integer>13</integer>
 	<key>CYShineVersion</key>
 	<integer>2</integer>
+	<key>IsInCodeGeneratorMode</key>
+	<true/>
 	<key>MainCSS</key>
 	<string>main.css</string>
 	<key>MainJS</key>

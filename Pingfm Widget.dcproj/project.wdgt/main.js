@@ -24,6 +24,7 @@ function load()
 {
     dashcode.setupParts();
     loadVersionString();
+    loadUserAppKey();
 }
 
 function loadVersionString() {
@@ -85,6 +86,8 @@ function sync()
 //
 function showBack(event)
 {
+    saveUserAppKey();
+
     var front = document.getElementById("front");
     var back = document.getElementById("back");
 
@@ -122,7 +125,7 @@ function showFront(event)
         setTimeout('widget.performTransition();', 0);
     }
     
-    saveAppKey();
+    saveUserAppKey();
 }
 
 if (window.widget) {
@@ -186,7 +189,15 @@ function postButtonOnClick(event)
     if (message) postToPingfm(message);
 }
 
-function saveAppKey()
+function loadUserAppKey()
+{
+    var key = getUserAppKey();
+    var textField = document.getElementById('appKeyTextArea');
+    if (key && textField)
+        textField.value = key;
+}
+
+function saveUserAppKey()
 {
     var appKey  = document.getElementById('appKeyTextArea').value;
     if (appKey) {
