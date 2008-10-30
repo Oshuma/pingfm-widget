@@ -4,7 +4,7 @@
  according to the license.txt file included in the project.
  */
 
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 
 // Ping.fm application API key.
 const API_KEY = '4217564672bbb9e35396f53d79e0e114';
