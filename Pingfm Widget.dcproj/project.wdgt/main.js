@@ -14,7 +14,15 @@ const PREF_KEY_NAME = 'PingfmUserApplicationKey';
 
 const API_URL = 'http://api.ping.fm/v1';
 
-const DEBUG = false;
+const DEBUG = true;
+
+// Conditionally output a debug message.
+function debug(message)
+{
+    if (DEBUG && message)
+        alert("DEBUG: " + message);
+}
+
 
 //
 // Function: load()
@@ -249,17 +257,14 @@ function postToPingfm(message)
 function parseResponse(xmlRequest)
 {
     if (xmlRequest.status == 200) {
-        if (DEBUG) {
-            alert('Response XML: ' + xmlRequest.responseXML);
-            alert('Response: '     + xmlRequest.responseText);
-        }
+        debug('Response XML: ' + xmlRequest.responseXML);
+        debug('Response: '     + xmlRequest.responseText);
+
         clearTextArea('messageTextArea');
         updateCharacterCount();
     } else {
-        if (DEBUG) {
-            alert('HTTP Code: '   + xmlRequest.status);
-            alert('HTTP Status: ' + xmlRequest.statusText);
-            alert('Response: '    + xmlRequest.responseText);
-        }
+        debug('HTTP Code: '   + xmlRequest.status);
+        debug('HTTP Status: ' + xmlRequest.statusText);
+        debug('Response: '    + xmlRequest.responseText);
     }
 }
