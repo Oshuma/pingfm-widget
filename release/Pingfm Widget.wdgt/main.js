@@ -4,7 +4,7 @@
  according to the license.txt file included in the project.
  */
 
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 
 // Ping.fm application API key.
 const API_KEY = '4217564672bbb9e35396f53d79e0e114';
@@ -24,6 +24,7 @@ function load()
 {
     dashcode.setupParts();
     loadVersionString();
+    loadUserAppKey();
 }
 
 function loadVersionString() {
@@ -85,6 +86,8 @@ function sync()
 //
 function showBack(event)
 {
+    saveUserAppKey();
+
     var front = document.getElementById("front");
     var back = document.getElementById("back");
 
@@ -122,7 +125,7 @@ function showFront(event)
         setTimeout('widget.performTransition();', 0);
     }
     
-    saveAppKey();
+    saveUserAppKey();
 }
 
 if (window.widget) {
@@ -186,7 +189,15 @@ function postButtonOnClick(event)
     if (message) postToPingfm(message);
 }
 
-function saveAppKey()
+function loadUserAppKey()
+{
+    var key = getUserAppKey();
+    var textField = document.getElementById('appKeyTextArea');
+    if (key && textField)
+        textField.value = key;
+}
+
+function saveUserAppKey()
 {
     var appKey  = document.getElementById('appKeyTextArea').value;
     if (appKey) {
